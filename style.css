@@ -8,25 +8,71 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-header h1{
-    text-align: center;
+body{
+    background-color: #191919;
 }
 
-h1{
+
+
+h1 {
     text-align: center;
+    
+}
+
+.imagen-logo{
+    width: 100%;
+    height: auto;
+}
+
+.titulo-lista{
+    color: #ff4e75;
+    font-size: 70px;
+    font-weight: 900;
+    text-shadow: 3px 3px 0px #444343;
 }
 
 #contenedor-productos {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 20px;
+    background-color: #191919;
+    color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-#contenedor-productos img {
-    width: 150px;
+.product-container {
+    background-color: #ebeaeb;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    margin: 10px;
+    width: 200px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.product-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: #e51241;
+    border-width: 5px;
+}
+
+.product-container img {
+    width: 100%;
     height: auto;
+    max-width: 100%;
+    border-radius: 5px;
     margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button {
@@ -35,18 +81,19 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    font-size: 16px;
     margin: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2290d3;
 }
 
 button:active {
-    background-color: #3e8e41;
+    background-color: #2290d3;
 }
-
 
 .limpiar-btn {
     padding: 10px 20px;
@@ -61,4 +108,29 @@ button:active {
 
 .limpiar-btn:hover {
     background-color: #FF1A2D;
+}
+
+#filtrar{
+    background-color: #24a0ed;
+}
+
+#filtrar:hover{
+    background-color: #2290d3;
+}
+
+#agregar{
+    background-color:#4CAF50;
+
+}
+
+#agregar:hover {
+    background-color: #45a049;
+}
+
+#ver-carrito{
+    background-color:#4CAF50;
+}
+
+#ver-carrito:hover {
+    background-color: #45a049;
 }
