@@ -101,52 +101,70 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    function mostrarCarrito() {
-        if (carrito.length === 0) {
-            Swal.fire({
-                icon: 'info',
-                title: 'Carrito vacío',
-                text: 'No tienes productos en tu carrito.',
-            });
-            return;
-        }
-
-        let htmlCarrito = `
-            <table style="width:100%; text-align:left;">
-                <thead>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Cantidad</th>
-                        <th>Precio</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${carrito.map((producto) => `
-                        <tr>
-                            <td>${producto.nombre}</td>
-                            <td>${producto.cantidad}</td>
-                            <td>$${producto.precio.toLocaleString()}</td>
-                            <td>$${(producto.precio * producto.cantidad).toLocaleString()}</td>
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
-            <b>Total: $${carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0).toLocaleString()}</b>
-        `;
-        
+function mostrarCarrito() {
+    if (carrito.length === 0) {
         Swal.fire({
-            title: 'Tu Carrito',
-            html: htmlCarrito,
-            confirmButtonText: 'Finalizar compra',
-            cancelButtonText: 'Cancelar',
-            showCancelButton: true,
-        }).then((result) => {
-            if (result.isConfirmed) {
-                finalizarCompra();
-            }
+            icon: 'info',
+            title: 'Carrito vacío',
+            text: 'No tienes productos en tu carrito.',
         });
+        return;
     }
+
+    let htmlCarrito = `
+        <table style="width:100%; text-align:left;">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                ${carrito.map((producto) => `
+                    <tr>
+                        <td>${producto.nombre}</td>
+                        <td>${producto.cantidad}</td>
+                        <td>$${producto.precio.toLocaleString()}</td>
+                        <td>$${(producto.precio * producto.cantidad).toLocaleString()}</td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+        <b>Total: $${carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0).toLocaleString()}</b>
+    `;
+
+    Swal.fire({
+        title: 'Tu Carrito',
+        html: htmlCarrito,
+        confirmButtonText: 'Finalizar compra',
+        cancelButtonText: 'Cancelar',
+        showCancelButton: true,
+        showDenyButton: true,
+        denyButtonText: 'Vaciar Carrito',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            finalizarCompra();
+        } else if (result.isDenied) {
+            vaciarCarrito();
+        }
+    });
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    localStorage.removeItem("carrito");
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Carrito Vaciado',
+        text: 'Tu carrito ha sido vaciado correctamente.',
+    });
+
+    mostrarCarrito();
+}
+
 
 
     function finalizarCompra() {
