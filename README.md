@@ -1,6 +1,8 @@
-Primer proyecto utilizando JavaScript, HTML y CSS, he creado un página web de eccommerce ficticia sobre bebidas alcoholicas.
+Primer proyecto utilizando JavaScript, HTML y CSS.
 
-Utilicé los siguiente temas aprendidos:
+He creado una página web ficticia de e-commerce sobre bebidas alcohólicas.
+
+Utilicé los siguientes conceptos aprendidos:
 
 ✅ Objetos – Se usan para modelar productos.
 
@@ -8,10 +10,10 @@ Utilicé los siguiente temas aprendidos:
 
 ✅ DOM – Manipulación de la página para mostrar productos.
 
-✅ Eventos – Manejo de clicks en botones.
+✅ Eventos – Manejo de clics en botones.
 
 ✅ Storage – Uso de localStorage.
 
-✅ Librerias – SweetAlert
+✅ Librerías – Uso de SweetAlert2 para mostrar alertas personalizadas.
 
-✅ Fetch
+✅ Fetch – Consumo de una API con fetch().
