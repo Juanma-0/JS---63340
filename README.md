@@ -16,4 +16,4 @@ Utilicé los siguientes conceptos aprendidos:
 
 ✅ Librerías – Uso de SweetAlert2 para mostrar alertas personalizadas.
 
-✅ Fetch – Consumo de una API con fetch().
+✅ Fetch – Consumo de una API.
